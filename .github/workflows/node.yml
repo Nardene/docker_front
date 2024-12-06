@@ -6,6 +6,9 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+env:
+  DOCKER_USERNAME: nologin #login pour se co au depot du prof
+
 jobs:
   build:
     runs-on: ubuntu-latest
