@@ -15,15 +15,16 @@ jobs:
 
       - name: Use Node.js 21
         uses: actions/setup-node@v4
-          with:
-            node-version: 21
-            cache: 'npm'
+        with:
+          node-version: 21
+          cache: "npm"
+
       - name: Installation des dependances
         run: npm ci
       - name: Verification code JS
         run: npm run lint
       - name: Build du package
-        run: npm run build      
+        run: npm run build
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
