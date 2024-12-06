@@ -1,0 +1,13 @@
+FROM node:21-alpine as builder
+WORKDIR /app
+COPY . .
+RUN npm run install
+RUN npm run build
+
+FROM nginx:1.27-alpine
+
+COPY nginx/ /etc/nginx
+
+COPY --from=node dist/ /usr/share/nginx/html
+
+COPY entrypoint.sh /docker-entrypoint.d/entrypoint.sh
